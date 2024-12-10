@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1087334480935",
-    "project_id": "jetpackchatapp-a5bef",
-    "storage_bucket": "jetpackchatapp-a5bef.appspot.com"
+    "project_number": "1058657747907",
+    "project_id": "eclipse-c02d8",
+    "storage_bucket": "eclipse-c02d8.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1087334480935:android:8c57a90dbea7257da6e202",
+        "mobilesdk_app_id": "1:1058657747907:android:d3ed3e1ebb030de33bb376",
         "android_client_info": {
           "package_name": "com.nikhil.chatapplication"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDqQjHnyaWHvgkDvPe4ekG62jF5IyivXso"
+          "current_key": "AIzaSyCARnJdMKUxsJN7B7Om1tRerKC-PgK_-Jw"
         }
       ],
       "services": {

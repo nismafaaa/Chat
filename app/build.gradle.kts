@@ -66,7 +66,8 @@ dependencies {
     implementation(libs.androidx.material3)
 
     // Firebase dependencies
-    implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
+    implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-firestore") // Firestore
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation(libs.androidx.appcompat)

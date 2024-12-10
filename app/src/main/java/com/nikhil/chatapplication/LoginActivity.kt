@@ -1,6 +1,5 @@
 package com.nikhil.chatapplication
 
-
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -29,19 +28,29 @@ class LoginActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
 
-        setContent {
-            LoginScreen()
+        // Check if the user is already logged in
+        if (auth.currentUser != null) {
+            navigateToChatList()
+        } else {
+            setContent {
+                LoginScreen()
+            }
         }
     }
+
+    private fun navigateToChatList() {
+        val intent = Intent(this, ChatListActivity::class.java)
+        startActivity(intent)
+        finish() // Prevent returning to LoginActivity
+    }
 }
+
 @Composable
 fun LoginScreen() {
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf<String?>(null) }
     val auth = FirebaseAuth.getInstance()
-
-    // Get the context for launching activities
     val context = LocalContext.current
 
     Column(
@@ -51,7 +60,6 @@ fun LoginScreen() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // "LOGIN" Heading
         Text(text = "LOGIN", fontSize = 32.sp, color = Color.Black)
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -79,9 +87,9 @@ fun LoginScreen() {
             auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val intent = Intent(context, MainActivity::class.java)
+                        val intent = Intent(context, ChatListActivity::class.java)
+                        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         context.startActivity(intent)
-                        // Optionally finish() if inside an activity
                     } else {
                         errorMessage = task.exception?.message
                     }
@@ -96,7 +104,6 @@ fun LoginScreen() {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Button to navigate to Signup Screen
         TextButton(onClick = {
             val intent = Intent(context, SignupActivity::class.java)
             context.startActivity(intent)

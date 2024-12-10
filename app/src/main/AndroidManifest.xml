@@ -12,25 +12,34 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ChatApplication"
         tools:targetApi="31">
-        <activity
-            android:name=".SignupActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <!-- Login Activity -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
-
+            <!-- Set LoginActivity as the launcher activity -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+        <!-- Signup Activity -->
+        <activity
+            android:name=".SignupActivity"
+            android:exported="true" />
+
+        <!-- Chat List Activity -->
+        <activity
+            android:name=".ChatListActivity"
+            android:exported="true" />
+
+        <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ChatApplication"></activity>
-    </application>
+            android:theme="@style/Theme.ChatApplication" />
 
+    </application>
 </manifest>
